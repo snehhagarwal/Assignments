@@ -1,0 +1,21 @@
+class Solution {
+    static Long[] lcmAndGcd(Long A , Long B) {
+        // code here
+        long gcd=gcdfun(A,B);
+        long lcm=lcmfun(A,B,gcd);
+        Long[] arr={lcm,gcd};
+        return arr;
+    }
+    public static long gcdfun(long A,long B){
+        while(A>0 && B>0){
+            if(A>B) A=A%B;
+            else B=B%A;
+        }
+        if(A==0) return B;
+        else return A;
+    }
+    public static long lcmfun(long A,long B,long gcd){
+        long ans=(A*B)/gcd;
+        return ans;
+    }
+};
